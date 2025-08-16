@@ -17,6 +17,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.furlaneto.murilo.movie.navigation.AppRoutes
+import br.com.furlaneto.murilo.movie.ui.components.movies.MoviesListRoute
+import br.com.furlaneto.murilo.movie.ui.components.movies.MoviesListScreen
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -30,7 +32,7 @@ fun App() {
         val navController = rememberNavController()
        NavHost(navController, startDestination = AppRoutes.MoviesList){
            composable<AppRoutes.MoviesList> {
-               //MoviesListScreen()
+               MoviesListRoute()
            }
 
            composable<AppRoutes.MovieDetails> {
