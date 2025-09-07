@@ -3,6 +3,7 @@ package br.com.furlaneto.murilo.movie.ui.components.movies.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,6 +16,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import br.com.furlaneto.murilo.movie.domain.model.Movie
+import coil3.compose.AsyncImage
 import movie.composeapp.generated.resources.Res
 import movie.composeapp.generated.resources.minecraft_movie
 import org.jetbrains.compose.resources.painterResource
@@ -32,11 +34,11 @@ fun MoviePoster(
                  .height(210.dp),
              shape = RoundedCornerShape(12.dp)
          ){
-             Image(
-                 painter = painterResource(Res.drawable.minecraft_movie),
+             AsyncImage(
+                 model = movie.posterUrl,
                  contentDescription = null,
                  contentScale = ContentScale.Crop,
-                 modifier =   Modifier.fillMaxSize()
+                 modifier =   Modifier.fillMaxWidth(),
              )
          }
 
