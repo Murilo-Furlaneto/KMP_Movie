@@ -1,14 +1,9 @@
 package br.com.furlaneto.murilo.movie.ui.components.movies
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -19,11 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import br.com.furlaneto.murilo.movie.data.network.IMAGE_SMALL_BASE_URL
 import br.com.furlaneto.murilo.movie.data.network.KtorClient
-import br.com.furlaneto.murilo.movie.data.network.model.MovieResponse
 import br.com.furlaneto.murilo.movie.domain.model.Movie
 import br.com.furlaneto.murilo.movie.domain.model.movie1
 import br.com.furlaneto.murilo.movie.ui.components.components.MovieSection
-import br.com.furlaneto.murilo.movie.ui.components.movies.components.MoviePoster
 
 @Composable
 fun MoviesListRoute(modifier: Modifier = Modifier) {
