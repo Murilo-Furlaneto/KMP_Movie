@@ -1,7 +1,7 @@
 package br.com.furlaneto.murilo.movie.domain.model
 
 import br.com.furlaneto.murilo.movie.data.network.IMAGE_SMALL_BASE_URL
-import br.com.furlaneto.murilo.movie.data.network.model.MovieResponse
+import br.com.furlaneto.murilo.movie.data.model.MovieResponse
 
 data class Movie(
     val id: Int,

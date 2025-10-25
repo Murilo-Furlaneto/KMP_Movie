@@ -2,7 +2,7 @@ package br.com.furlaneto.murilo.movie.ui.movies
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.furlaneto.murilo.movie.data.network.repository.MoviesRepository
+import br.com.furlaneto.murilo.movie.data.repository.MoviesRepository
 import br.com.furlaneto.murilo.movie.domain.model.MovieSection
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -38,7 +38,7 @@ class MoviesListViewModel(
 
     sealed interface  MovieListState{
         data object Loading: MovieListState
-        data class Success(val moviesSection: List<MovieSection>): MovieListState
+        data class Success(val moviesSections: List<MovieSection>): MovieListState
         data class Error(val message: String): MovieListState
 
     }

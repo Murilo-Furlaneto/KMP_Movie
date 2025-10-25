@@ -16,30 +16,44 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import br.com.furlaneto.murilo.movie.di.dataModule
+import br.com.furlaneto.murilo.movie.di.networkModule
+import br.com.furlaneto.murilo.movie.di.viewModelModule
 import br.com.furlaneto.murilo.movie.navigation.AppRoutes
 import br.com.furlaneto.murilo.movie.ui.components.movies.MoviesListRoute
 import br.com.furlaneto.murilo.movie.ui.components.movies.MoviesListScreen
+import br.com.furlaneto.murilo.movie.ui.theme.MoviesAppTheme
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-
+import org.koin.compose.KoinApplication
 import movie.composeapp.generated.resources.Res
 import movie.composeapp.generated.resources.compose_multiplatform
 
 @Composable
 @Preview
 fun App() {
-    MaterialTheme{
-        val navController = rememberNavController()
-       NavHost(navController, startDestination = AppRoutes.MoviesList){
-           composable<AppRoutes.MoviesList> {
-               MoviesListRoute()
-           }
+    KoinApplication(
+        application = {
+            modules(
+                networkModule,
+                dataModule,
+                viewModelModule
+            )
+        }
+    ){
+        MoviesAppTheme{
+            val navController = rememberNavController()
+            NavHost(navController, startDestination = AppRoutes.MoviesList){
+                composable<AppRoutes.MoviesList> {
+                    MoviesListRoute()
+                }
 
-           composable<AppRoutes.MovieDetails> {
-               //MovieDetailsScreen()
-           }
-       }
+                composable<AppRoutes.MovieDetails> {
+                    //MovieDetailsScreen()
+                }
+            }
 
+        }
     }
 
     }
